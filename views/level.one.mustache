@@ -1,0 +1,16 @@
+<li class="menu-label mt-0 text-primary font-12 fw-semibold">
+	{{#link}}
+		<a href='{{link}}'>
+			{{labelCharacter}}<span>{{labelRemainder}}</span>
+			<br /><span class="font-10 text-secondary fw-normal">{{description}}</span>
+		</a>
+	{{/link}}
+	{{^link}}
+		{{labelCharacter}}<span>{{labelRemainder}}</span>
+		<br /><span class="font-10 text-secondary fw-normal">{{description}}</span>
+	{{/link}}
+</li>
+{{#menu}}
+	{{> level.two}}
+{{/menu}}
+{{{ html }}}

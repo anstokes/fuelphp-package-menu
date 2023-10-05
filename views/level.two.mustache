@@ -1,0 +1,31 @@
+<li class="nav-item">
+	{{#link}}
+		<a href="{{link}}">
+			<i class="{{icon.class}}"></i>
+			<span>{{label}}</span>
+		</a>
+	{{/link}}
+	{{^link}}
+		{{#hasSubmenu}}
+		<a
+			aria-controls="{{id}}"
+			aria-expanded="false"
+			class="nav-link"
+			data-bs-toggle="collapse"
+			href="#{{id}}"
+			role="button"
+		>
+			<i class="{{icon.class}}"></i>
+			<span>{{label}}</span>
+		</a>
+		<div class="collapse " id="{{id}}">
+			<ul class="nav flex-column">
+			{{#menu}}
+				{{> level.three}}
+			{{/menu}}
+			{{{ html }}}
+			</ul>
+		</div>
+		{{/hasSubmenu}}
+	{{/link}}
+</li>

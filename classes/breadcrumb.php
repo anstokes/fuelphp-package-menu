@@ -43,7 +43,7 @@ class Breadcrumb
         // Load configuration
         if (! Config::load('breadcrumb', true)) {
             // Load default configuration
-            Config::load('anstech-menu::breadcrumb', 'breadcrumb', true);
+            Config::load('menu::breadcrumb', 'breadcrumb', true);
         }
 
         // Check if autorendering is enabled

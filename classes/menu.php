@@ -6,6 +6,7 @@ use Fuel\Core\Arr;
 use Fuel\Core\Config;
 use Fuel\Core\Module;
 use Fuel\Core\Router;
+use Mustache_Loader_FilesystemLoader;
 use Parser\View;
 use Parser\View_Mustache;
 
@@ -207,6 +208,11 @@ class Menu
             // Parse the menu
             $parsed_menu = static::parseMenu($menu);
             // var_dump($parsedMenu); exit;
+
+            // Ensure partials are loaded from views
+            View_Mustache::parser()->setPartialsLoader(
+                new Mustache_Loader_FilesystemLoader(realpath(__DIR__. DS . '..' . DS . 'views'))
+            );
 
             return View::forge($template . '.mustache', $parsed_menu, false);
         }
